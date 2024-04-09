@@ -1,17 +1,15 @@
 
 
 
-public class MapaHashVetor <Integer, Veiculo>{
+public class MapaHashVetor <Integer, Veiculo> {
 
-    private final int posicoes=1000000;
+    
     private Veiculo[] vetor;
     
     public MapaHashVetor() {
-    this.vetor = (Veiculo[]) new Object[posicoes];
+    this.vetor = (Veiculo[]) new Object[10];
     }
  
-
-
 
     private int hash(int chassi) {
      return chassi % this.vetor.length;

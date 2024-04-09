@@ -33,15 +33,15 @@ public class Main {
       
 
         long inicio100 = System.nanoTime();
-       for (int i = 0; i < 100; i++){
+        for (int i = 0; i < 100; i++){
              Veiculo v = new Veiculo(); 
              mapaVeiculos.put(v.getChassi(), v);
        }
-
+  
         long fim100 = System.nanoTime();
         long duracao100 = (fim100 - inicio100);
       
-
+/*
          long inicioMil = System.nanoTime();
         for (int i = 0; i < 1000; i++){
             Veiculo v = new Veiculo(); 
@@ -68,7 +68,7 @@ public class Main {
         long fimMilhao = System.nanoTime();
         long duracaoMilhao = (fimMilhao - inicioMilhao);
         
-    
+     */
  
        
         //2)------------Apresentação dos veículos gerados------------------------------------------------------------------------
@@ -92,13 +92,13 @@ public class Main {
        //4)------------Método para remover os veículos com número de chassi igual ou inferior à 202050000------------------------------------
        
        
-        System.out.println("\n------------Lista após a remoção dos veículos de chassi igual ou inferior à 20205000:"); 
+        System.out.println("\n------------Lista após a remoção dos veículos de chassi igual ou inferior à 202050000:"); 
         long começo4 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
             Veiculo veiculo = mapaVeiculos.get(i);
             if (veiculo != null && veiculo.getChassi() <= 202050000) {
                 mapaVeiculos.remove(i);
-                System.out.println(mapaVeiculos);
+                
 
             }
         }
@@ -114,10 +114,10 @@ public class Main {
    
    
         System.out.println("\nTempo para inserir 10 veículos: " + duracao10 + " nanossegundos");
-         System.out.println("\nTempo para inserir 100 de veículos: " + duracao100 + " nanossegundos");
-        System.out.println("\nTempo para inserir 1.000 de veículos: " + duracaoMil + " nanossegundos");
+        System.out.println("\nTempo para inserir 100 de veículos: " + duracao100 + " nanossegundos");
+        /*System.out.println("\nTempo para inserir 1.000 de veículos: " + duracaoMil + " nanossegundos");
         System.out.println("\nTempo para inserir 100.000 de veículos: " + duracaoCemMil + " nanossegundos");
-        System.out.println("\nTempo para inserir 1.000.000 de veículos: " + duracaoMilhao + " nanossegundos");
+        System.out.println("\nTempo para inserir 1.000.000 de veículos: " + duracaoMilhao + " nanossegundos");*/
         System.out.println("\nTempo para apresentar os veículos gerados: " + duração2 + " nanossegundos");
     
         //3)------------Método para verificar quantos veículos da marca Ford existem no mapa------------------------------------
@@ -125,14 +125,14 @@ public class Main {
        
         long começo3 = System.nanoTime();
         int carrosFord = 0;
-             for (int i = 0; i < 100000000; i++) {
+             for (int i = 0; i < 10; i++) {
                  Veiculo veiculo = mapaVeiculos.get(i);
-                     if (veiculo != null && veiculo.getMarca()=="Ford") {
+                     if (veiculo != null && veiculo.getMarca().equals("Ford")) {
                 carrosFord++;
         }
        }
-       System.out.println("Número de carros da marca Ford: " + carrosFord);
-        long fim3 = System.nanoTime();
+       System.out.println("\nNúmero de carros da marca Ford: " + carrosFord);
+       long fim3 = System.nanoTime();
 
         long duração3 = (fim3 - começo3);
         System.out.println("\nTempo para verificar quantos veículos da marca Ford existem: " + duração3 + " nanossegundos");
