@@ -16,14 +16,14 @@ public class Main {
      */
     public static void main(String[] args) {
 
-
+        int quantidade = 100;
         MapaHashVetor <Integer, Veiculo> mapaVeiculos = new MapaHashVetor <Integer, Veiculo>();
         
         // 1)------------Inserção dos veículos------------------------------------------------
         long inicio10 = System.nanoTime();
         
        
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < quantidade; i++){
             Veiculo v = new Veiculo(); 
             mapaVeiculos.put(v.getChassi(), v);
         }
@@ -31,7 +31,7 @@ public class Main {
         long fim10 = System.nanoTime();
         long duracao10 = (fim10 - inicio10);
       
-
+/*
         long inicio100 = System.nanoTime();
         for (int i = 0; i < 100; i++){
              Veiculo v = new Veiculo(); 
@@ -41,7 +41,7 @@ public class Main {
         long fim100 = System.nanoTime();
         long duracao100 = (fim100 - inicio100);
       
-/*
+
          long inicioMil = System.nanoTime();
         for (int i = 0; i < 1000; i++){
             Veiculo v = new Veiculo(); 
@@ -76,7 +76,7 @@ public class Main {
         System.out.println("\n------------Todos os veículos gerados:");
         long começo2 = System.nanoTime();
         
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < quantidade; i++) {
             Veiculo veiculo = mapaVeiculos.get(i);
             if (veiculo != null) {
                 System.out.println(veiculo);
@@ -94,7 +94,7 @@ public class Main {
        
         System.out.println("\n------------Lista após a remoção dos veículos de chassi igual ou inferior à 202050000:"); 
         long começo4 = System.nanoTime();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < quantidade; i++) {
             Veiculo veiculo = mapaVeiculos.get(i);
             if (veiculo != null && veiculo.getChassi() <= 202050000) {
                 mapaVeiculos.remove(i);
@@ -113,9 +113,9 @@ public class Main {
         long duração4 = (fim4 - começo4);
    
    
-        System.out.println("\nTempo para inserir 10 veículos: " + duracao10 + " nanossegundos");
-        System.out.println("\nTempo para inserir 100 de veículos: " + duracao100 + " nanossegundos");
-        /*System.out.println("\nTempo para inserir 1.000 de veículos: " + duracaoMil + " nanossegundos");
+        System.out.println("\nTempo para inserir "+quantidade+" veículos: " + duracao10 + " nanossegundos");
+       /* System.out.println("\nTempo para inserir 100 de veículos: " + duracao100 + " nanossegundos");
+        System.out.println("\nTempo para inserir 1.000 de veículos: " + duracaoMil + " nanossegundos");
         System.out.println("\nTempo para inserir 100.000 de veículos: " + duracaoCemMil + " nanossegundos");
         System.out.println("\nTempo para inserir 1.000.000 de veículos: " + duracaoMilhao + " nanossegundos");*/
         System.out.println("\nTempo para apresentar os veículos gerados: " + duração2 + " nanossegundos");
