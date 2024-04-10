@@ -1,9 +1,9 @@
 
 
-public interface IVetor {
+public interface IVetor  {
    
     public void put(int chassi,Veiculo veiculo);
-    public void get(int chassi);
+    public void get(Veiculo veiculo);
     public Veiculo remove(Veiculo veiculo);
     public String toString();
     

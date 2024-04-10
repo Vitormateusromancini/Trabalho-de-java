@@ -16,60 +16,24 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        int quantidade = 100;
+        int quantidade = 10;
         MapaHashVetor <Integer, Veiculo> mapaVeiculos = new MapaHashVetor <Integer, Veiculo>();
         
         // 1)------------Inserção dos veículos------------------------------------------------
         long inicio10 = System.nanoTime();
-        
        
-        for (int i = 0; i < quantidade; i++){
+        
+        for (int i = 0; i < quantidade; i++){ 
             Veiculo v = new Veiculo(); 
             mapaVeiculos.put(v.getChassi(), v);
-        }
         
+           
+        }
+      
         long fim10 = System.nanoTime();
         long duracao10 = (fim10 - inicio10);
-      
-/*
-        long inicio100 = System.nanoTime();
-        for (int i = 0; i < 100; i++){
-             Veiculo v = new Veiculo(); 
-             mapaVeiculos.put(v.getChassi(), v);
-       }
-  
-        long fim100 = System.nanoTime();
-        long duracao100 = (fim100 - inicio100);
-      
+       
 
-         long inicioMil = System.nanoTime();
-        for (int i = 0; i < 1000; i++){
-            Veiculo v = new Veiculo(); 
-            mapaVeiculos.put(v.getChassi(), v);
-        }
-        long fimMil = System.nanoTime();
-        long duracaoMil = (fimMil - inicioMil);
-        
-
-        long inicioCemMil = System.nanoTime();
-       for (int i = 0; i < 100000; i++){
-            Veiculo v = new Veiculo(); 
-            mapaVeiculos.put(v.getChassi(), v);
-        }
-        long fimCemMil = System.nanoTime();
-        long duracaoCemMil = (fimCemMil - inicioCemMil);
-      
-
-        long inicioMilhao = System.nanoTime();
-        for (int i = 0; i < 100000; i++){
-            Veiculo v = new Veiculo(); 
-            mapaVeiculos.put(v.getChassi(), v);
-        }
-        long fimMilhao = System.nanoTime();
-        long duracaoMilhao = (fimMilhao - inicioMilhao);
-        
-     */
- 
        
         //2)------------Apresentação dos veículos gerados------------------------------------------------------------------------
         
@@ -79,7 +43,9 @@ public class Main {
         for (int i = 0; i < quantidade; i++) {
             Veiculo veiculo = mapaVeiculos.get(i);
             if (veiculo != null) {
+
                 System.out.println(veiculo);
+             
             }
         }
 
@@ -103,7 +69,7 @@ public class Main {
             }
         }
         //Lista com veiculos removidos
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < quantidade; i++) {
             Veiculo veiculo = mapaVeiculos.get(i);
             if (veiculo != null) {
                 System.out.println(veiculo);
@@ -114,10 +80,6 @@ public class Main {
    
    
         System.out.println("\nTempo para inserir "+quantidade+" veículos: " + duracao10 + " nanossegundos");
-       /* System.out.println("\nTempo para inserir 100 de veículos: " + duracao100 + " nanossegundos");
-        System.out.println("\nTempo para inserir 1.000 de veículos: " + duracaoMil + " nanossegundos");
-        System.out.println("\nTempo para inserir 100.000 de veículos: " + duracaoCemMil + " nanossegundos");
-        System.out.println("\nTempo para inserir 1.000.000 de veículos: " + duracaoMilhao + " nanossegundos");*/
         System.out.println("\nTempo para apresentar os veículos gerados: " + duração2 + " nanossegundos");
     
         //3)------------Método para verificar quantos veículos da marca Ford existem no mapa------------------------------------
@@ -125,7 +87,7 @@ public class Main {
        
         long começo3 = System.nanoTime();
         int carrosFord = 0;
-             for (int i = 0; i < 10; i++) {
+             for (int i = 0; i < quantidade; i++) {
                  Veiculo veiculo = mapaVeiculos.get(i);
                      if (veiculo != null && veiculo.getMarca().equals("Ford")) {
                 carrosFord++;
@@ -137,6 +99,7 @@ public class Main {
         long duração3 = (fim3 - começo3);
         System.out.println("\nTempo para verificar quantos veículos da marca Ford existem: " + duração3 + " nanossegundos");
         System.out.println("\nTempo para verificar e remover os chassis iguais ou inferiores à 2020500: " + duração4 + " nanossegundos");
+       
     
     }
         
