@@ -1,17 +1,13 @@
 
+public class MapaHashVetor<K, V extends Veiculo> implements IVetor {
 
-
-public class MapaHashVetor <Integer, Veiculo> implements IVetor{
-
-    
-    private Veiculo[] vetor;
-    
+    private V[] vetor;
     private int quantidade = 10;
 
-    public MapaHashVetor() {
-    this.vetor = (Veiculo[]) new Object[quantidade];
-    }
  
+    public MapaHashVetor() {
+        this.vetor = (V[]) new Veiculo[quantidade];
+    }
 
     private int hash(int chassi) {
      double valorHash =((chassi * 0.42604893) % 1) * this.vetor.length;
@@ -24,9 +20,9 @@ public class MapaHashVetor <Integer, Veiculo> implements IVetor{
        return this.vetor[hash];
      }
 
-    public void put(int chassi, Veiculo marca) {
+    public void put(int chassi, Veiculo veiculo) {
          int hash = hash(chassi);
-         this.vetor[hash] = marca;
+         this.vetor[hash] = (V) veiculo;
         
      }
 
@@ -47,5 +43,10 @@ public class MapaHashVetor <Integer, Veiculo> implements IVetor{
         }
         return sb.toString();
     }
+
+
+
+
+
     
 }

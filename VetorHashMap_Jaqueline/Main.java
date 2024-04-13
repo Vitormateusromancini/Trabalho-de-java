@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 
 
@@ -33,7 +33,6 @@ public class Main {
         long fim10 = System.nanoTime();
         long duracao10 = (fim10 - inicio10);
        
-
        
         //2)------------Apresentação dos veículos gerados------------------------------------------------------------------------
         
@@ -52,8 +51,7 @@ public class Main {
         long fim2 = System.nanoTime();
         long duração2 = (fim2 - começo2);
         
-      
-      
+        
       
        //4)------------Método para remover os veículos com número de chassi igual ou inferior à 202050000------------------------------------
        
@@ -63,7 +61,7 @@ public class Main {
         for (int i = 0; i < quantidade; i++) {
             Veiculo veiculo = mapaVeiculos.get(i);
             if (veiculo != null && veiculo.getChassi() <= 202050000) {
-                mapaVeiculos.remove(i);
+                mapaVeiculos.remove(veiculo.getChassi());
                 
 
             }
