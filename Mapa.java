@@ -1,6 +1,7 @@
-public interface Mapa {
-    void inserir(Veiculo veiculo);
-    Veiculo buscar(int chassi);
-    void remover(int chassi);
-    int tamanho();
+public interface Mapa<KeyType, ValueType> {
+    void put(KeyType key, ValueType value);
+    ValueType get(KeyType key);
+    boolean containsKey(KeyType key);
+    boolean remove(KeyType key);
+    int size();
 }
